@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "recomputed_model": false,
+  "ran_validation": true,
+  "legacy_first_time_error_override": false,
+  "model_data_directory": "data/model",
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "elapsed_seconds": 26.99990351300221,
+  "outputs": [
+    "figures/continuous_plume_profiles.pdf",
+    "figures/continuous_plume_profiles.png",
+    "figures/continuous_plume_history.pdf",
+    "figures/continuous_plume_history.png",
+    "figures/all_sites_radius_powerlaw_loglog.pdf",
+    "figures/all_sites_radius_powerlaw_loglog.png",
+    "results/field/radius_fit_parameters.csv"
+  ]
+}

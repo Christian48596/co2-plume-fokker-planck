@@ -1,0 +1,197 @@
+{
+  "source_csv": "combined_radius_vs_year_all_sites.csv",
+  "source_sha256": "cc30962519db5d3d6bfc4f353f591382139928374295d61319e713a2ef81b0b3",
+  "model": "R_eq = R0 * [(t - t0)/(1 year)]**beta",
+  "units": {
+    "R0": "km",
+    "t": "decimal calendar year",
+    "t0": "decimal calendar year"
+  },
+  "fit_method": "10000-point onset scan; unweighted natural-log ordinary least squares",
+  "onset_constraints": "injection start + 1e-4 <= t0 <= first survey - 1e-4 years",
+  "uncertainty_role": "Displayed observational error bars; not regression weights or fitted-onset uncertainty.",
+  "time_provenance": "Survey dates and errors are retained from the supplied CSV. See repository provenance for the Aquistore date-to-volume mapping query.",
+  "legacy_first_time_error_override": false,
+  "legacy_override_year": null,
+  "interpretation": "Injection-period footprint descriptors; no constitutive q or shut-in rate inferred.",
+  "excluded_csv_rows": {
+    "Sleipner": [],
+    "Aquistore": [],
+    "Weyburn--Midale": []
+  },
+  "fits": [
+    {
+      "Site": "Sleipner",
+      "InjectionStartYear": 1996.0,
+      "t0_year": 1998.4826827582758,
+      "R0_km": 0.15900679480803326,
+      "beta": 0.665087134959409,
+      "R2_log": 0.9991981949332785,
+      "N_points": 6,
+      "SSE_log": 0.001972145366868617,
+      "t0_grid_index": 8275,
+      "t0_grid_size": 10000,
+      "t0_grid_lower_year": 1996.0001,
+      "t0_grid_upper_year": 1998.9999,
+      "t0_at_grid_boundary": false
+    },
+    {
+      "Site": "Aquistore",
+      "InjectionStartYear": 2015.2465753424656,
+      "t0_year": 2015.2466753424656,
+      "R0_km": 0.12797196238445113,
+      "beta": 0.4488387310228698,
+      "R2_log": 0.9917536031397184,
+      "N_points": 5,
+      "SSE_log": 0.010379473263285525,
+      "t0_grid_index": 0,
+      "t0_grid_size": 10000,
+      "t0_grid_lower_year": 2015.2466753424656,
+      "t0_grid_upper_year": 2015.62268767123,
+      "t0_at_grid_boundary": true
+    },
+    {
+      "Site": "Weyburn--Midale",
+      "InjectionStartYear": 2000.0,
+      "t0_year": 2000.0001,
+      "R0_km": 0.7586830347795699,
+      "beta": 0.478108105708068,
+      "R2_log": 0.9943832522925777,
+      "N_points": 3,
+      "SSE_log": 0.0010170862448610212,
+      "t0_grid_index": 0,
+      "t0_grid_size": 10000,
+      "t0_grid_lower_year": 2000.0001,
+      "t0_grid_upper_year": 2001.9999,
+      "t0_at_grid_boundary": true
+    }
+  ],
+  "plotted_time_uncertainties": [
+    {
+      "Site": "Sleipner",
+      "SurveyYear": 1999.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 0.5173172417241858,
+      "unclipped_left_error_endpoint_year": 0.017317241724185806,
+      "left_endpoint_clipped_to_axis": true
+    },
+    {
+      "Site": "Sleipner",
+      "SurveyYear": 2001.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 2.517317241724186,
+      "unclipped_left_error_endpoint_year": 2.017317241724186,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Sleipner",
+      "SurveyYear": 2002.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 3.517317241724186,
+      "unclipped_left_error_endpoint_year": 3.017317241724186,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Sleipner",
+      "SurveyYear": 2004.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 5.517317241724186,
+      "unclipped_left_error_endpoint_year": 5.017317241724186,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Sleipner",
+      "SurveyYear": 2006.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 7.517317241724186,
+      "unclipped_left_error_endpoint_year": 7.017317241724186,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Sleipner",
+      "SurveyYear": 2008.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 9.517317241724186,
+      "unclipped_left_error_endpoint_year": 9.017317241724186,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Aquistore",
+      "SurveyYear": 2015.62278767123,
+      "source_time_error_year": 0.37621232876711,
+      "display_time_error_year": 0.37621232876711,
+      "elapsed_time_year": 0.3761123287645205,
+      "unclipped_left_error_endpoint_year": -0.00010000000258952868,
+      "left_endpoint_clipped_to_axis": true
+    },
+    {
+      "Site": "Aquistore",
+      "SurveyYear": 2016.4995,
+      "source_time_error_year": 0.499500000000012,
+      "display_time_error_year": 0.499500000000012,
+      "elapsed_time_year": 1.2528246575343474,
+      "unclipped_left_error_endpoint_year": 0.7533246575343353,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Aquistore",
+      "SurveyYear": 2018.4995,
+      "source_time_error_year": 0.499500000000012,
+      "display_time_error_year": 0.499500000000012,
+      "elapsed_time_year": 3.2528246575343474,
+      "unclipped_left_error_endpoint_year": 2.7533246575343355,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Aquistore",
+      "SurveyYear": 2020.4995,
+      "source_time_error_year": 0.499500000000012,
+      "display_time_error_year": 0.499500000000012,
+      "elapsed_time_year": 5.252824657534347,
+      "unclipped_left_error_endpoint_year": 4.7533246575343355,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Aquistore",
+      "SurveyYear": 2023.87260273973,
+      "source_time_error_year": 0.0397260273972506,
+      "display_time_error_year": 0.0397260273972506,
+      "elapsed_time_year": 8.625927397264377,
+      "unclipped_left_error_endpoint_year": 8.586201369867126,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Weyburn--Midale",
+      "SurveyYear": 2002.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 1.999900000000025,
+      "unclipped_left_error_endpoint_year": 1.499900000000025,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Weyburn--Midale",
+      "SurveyYear": 2004.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 3.999900000000025,
+      "unclipped_left_error_endpoint_year": 3.499900000000025,
+      "left_endpoint_clipped_to_axis": false
+    },
+    {
+      "Site": "Weyburn--Midale",
+      "SurveyYear": 2007.0,
+      "source_time_error_year": 0.5,
+      "display_time_error_year": 0.5,
+      "elapsed_time_year": 6.999900000000025,
+      "unclipped_left_error_endpoint_year": 6.499900000000025,
+      "left_endpoint_clipped_to_axis": false
+    }
+  ]
+}

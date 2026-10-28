@@ -1,0 +1,17 @@
+{
+  "tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "tests_run": 7,
+    "status": "passed"
+  },
+  "fresh_6400_cell_recompute": "All stored numerical arrays agree exactly with the supplied archive.",
+  "full_reproduction_command": "python scripts/reproduce.py --validate",
+  "full_reproduction_status": "completed",
+  "four_grid_refinement_status": "completed",
+  "Barenblatt_control_relative_L1_error": 3.0713787245133896e-07,
+  "remote_GitHub_workflow_executed": false,
+  "plot_review": "All three manuscript PNG figures visually inspected; fonts, curves, axes, legends and panel letters are legible.",
+  "scientific_data_query": "First Aquistore survey date remains as supplied; see docs/DATA_PROVENANCE.md.",
+  "packaged_copy_plotting_status": "passed",
+  "packaged_copy_tests_status": "7 tests passed"
+}

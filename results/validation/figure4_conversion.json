@@ -1,0 +1,106 @@
+{
+  "comparison": "np.polyfit port versus independent centered-covariance OLS scan on the identical 10000 candidate onsets",
+  "sites": [
+    {
+      "site": "Sleipner",
+      "fit": {
+        "InjectionStartYear": 1996.0,
+        "t0_year": 1998.4826827582758,
+        "R0_km": 0.15900679480803326,
+        "beta": 0.665087134959409,
+        "R2_log": 0.9991981949332785,
+        "N_points": 6,
+        "SSE_log": 0.001972145366868617,
+        "t0_grid_index": 8275,
+        "t0_grid_size": 10000,
+        "t0_grid_lower_year": 1996.0001,
+        "t0_grid_upper_year": 1998.9999,
+        "t0_at_grid_boundary": false
+      },
+      "independent_fit": {
+        "t0_year": 1998.4826827582758,
+        "R0_km": 0.1590067948080332,
+        "beta": 0.6650871349594094,
+        "R2_log": 0.9991981949332785
+      },
+      "absolute_differences": {
+        "t0_year": 0.0,
+        "R0_km": 5.551115123125783e-17,
+        "beta": 4.440892098500626e-16,
+        "R2_log": 0.0
+      },
+      "excluded_csv_rows": [],
+      "first_original_time_error_year": 0.5,
+      "first_legacy_time_error_year": 0.08333333333333333
+    },
+    {
+      "site": "Aquistore",
+      "fit": {
+        "InjectionStartYear": 2015.2465753424656,
+        "t0_year": 2015.2466753424656,
+        "R0_km": 0.12797196238445113,
+        "beta": 0.4488387310228698,
+        "R2_log": 0.9917536031397184,
+        "N_points": 5,
+        "SSE_log": 0.010379473263285525,
+        "t0_grid_index": 0,
+        "t0_grid_size": 10000,
+        "t0_grid_lower_year": 2015.2466753424656,
+        "t0_grid_upper_year": 2015.62268767123,
+        "t0_at_grid_boundary": true
+      },
+      "independent_fit": {
+        "t0_year": 2015.2466753424656,
+        "R0_km": 0.12797196238445102,
+        "beta": 0.44883873102287025,
+        "R2_log": 0.9917536031397184
+      },
+      "absolute_differences": {
+        "t0_year": 0.0,
+        "R0_km": 1.1102230246251565e-16,
+        "beta": 4.440892098500626e-16,
+        "R2_log": 0.0
+      },
+      "excluded_csv_rows": [],
+      "first_original_time_error_year": 0.37621232876711,
+      "first_legacy_time_error_year": 0.08333333333333333
+    },
+    {
+      "site": "Weyburn--Midale",
+      "fit": {
+        "InjectionStartYear": 2000.0,
+        "t0_year": 2000.0001,
+        "R0_km": 0.7586830347795699,
+        "beta": 0.478108105708068,
+        "R2_log": 0.9943832522925777,
+        "N_points": 3,
+        "SSE_log": 0.0010170862448610212,
+        "t0_grid_index": 0,
+        "t0_grid_size": 10000,
+        "t0_grid_lower_year": 2000.0001,
+        "t0_grid_upper_year": 2001.9999,
+        "t0_at_grid_boundary": true
+      },
+      "independent_fit": {
+        "t0_year": 2000.0001,
+        "R0_km": 0.7586830347795696,
+        "beta": 0.47810810570806817,
+        "R2_log": 0.9943832522925777
+      },
+      "absolute_differences": {
+        "t0_year": 0.0,
+        "R0_km": 3.3306690738754696e-16,
+        "beta": 1.6653345369377348e-16,
+        "R2_log": 0.0
+      },
+      "excluded_csv_rows": [],
+      "first_original_time_error_year": 0.5,
+      "first_legacy_time_error_year": 0.08333333333333333
+    }
+  ],
+  "uncertainty_override_changes_fit": false,
+  "matlab_engine_available": false,
+  "note": "Exact MATLAB language semantics are ported; independent regression arithmetic verifies the coefficients. No MATLAB execution was claimed.",
+  "legacy_mode_fit_csv_identical": true,
+  "plot_visual_check": "Default PNG inspected: all points, axes, fit curves and legends visible; source first-point error bars preserved."
+}

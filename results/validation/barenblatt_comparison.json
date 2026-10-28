@@ -1,0 +1,105 @@
+{
+  "source_history_sha256": "36ea5c29a534acadef4f11f76d3df78c1bfb70e1eb3b01b09f83b68ef7d698e1",
+  "source_parameters": {
+    "H": 10.0,
+    "phi": 0.3,
+    "Sbr": 0.2,
+    "q": 0.3,
+    "D0": 20000.0,
+    "mobility_ratio": 5.0,
+    "QV": 10000000.0,
+    "ts": 3.0,
+    "rw": 10.0,
+    "rout": 20000.0,
+    "tend": 303.0
+  },
+  "production_cells": 6400,
+  "normalized_mobile_inventory_m2": 12499999.999999996,
+  "mobile_reservoir_volume_m3": 29999999.99999999,
+  "storage_factor_m": 2.4,
+  "imposed_normalized_rate_m2_per_year": 4166666.666666667,
+  "Gamma": 33.15727981081153,
+  "shutin_duration_year": 300.0,
+  "inventory_disk_radius_m": 1994.711402007163,
+  "inventory_diffusion_scale_year": 198.9436788648691,
+  "mass_Barenblatt_time_scale_year": 49.73591971621728,
+  "final_peak": 0.736308848855286,
+  "final_peak_thickness_m": 7.36308848855286,
+  "mean_thickness_within_R95_at_shutin_m": 2.9410247860338044,
+  "mean_thickness_within_R95_final_m": 1.958582393637898,
+  "mean_thickness_definition": "H*0.95*M_s/[pi*(R95^2-rw^2)]",
+  "full_to_PME_diffusivity_at_final_peak": 0.066837875238257,
+  "PME_diffusivity_at_final_peak_m2_per_year": 16142.545140328983,
+  "full_diffusivity_at_final_peak_m2_per_year": 1078.9334181172403,
+  "maximum_full_diffusivity_m2_per_year": 2881.2465318351847,
+  "thickness_at_maximum_full_diffusivity": 0.20198721071547604,
+  "scale_LM_squared_over_maximum_full_D_year": 1380.9556153332958,
+  "scale_LM_squared_over_final_peak_D_year": 3687.784167664946,
+  "thickness_for_10percent_diffusivity_error": 0.02173913043478261,
+  "thickness_for_5percent_diffusivity_error": 0.010416666666666668,
+  "full_model_final_R95_m": 4393.109970445283,
+  "full_model_inventory_error": 2.384185791015625e-15,
+  "direct_PME_same_initial_state": {
+    "relative_inventory_error": 2.235174179077149e-15,
+    "initial_state_jump": 0.0,
+    "final_max_cell_average": 0.29774593160795415,
+    "final_R95_m": 4842.9294478784495,
+    "minimum": 0.0,
+    "outermost_maximum": 0.0,
+    "rhs_evaluations": 15924,
+    "initial_inventory_m2": 12499999.999999996,
+    "initial_R95_m": 3585.041769565093
+  },
+  "peak_matched_Barenblatt": {
+    "initial": {
+      "age_year": 49.73591971621728,
+      "amplitude": 1.0,
+      "support_radius_m": 3108.533205182505,
+      "inventory_radius95_m": 2616.970298754507
+    },
+    "final": {
+      "age_year": 349.73591971621727,
+      "amplitude": 0.31748519574484085,
+      "support_radius_m": 5516.8829696470575,
+      "inventory_radius95_m": 4644.479540768898
+    }
+  },
+  "moment_matched_Barenblatt": {
+    "inherited_mean_r_squared_m2": 4152250.3087958526,
+    "initial": {
+      "age_year": 96.10718429396591,
+      "amplitude": 0.6787569569080971,
+      "support_radius_m": 3773.1004191532397,
+      "inventory_radius95_m": 3176.447243568206
+    },
+    "final": {
+      "age_year": 396.10718429396593,
+      "amplitude": 0.2950639402341274,
+      "support_radius_m": 5722.653386064896,
+      "inventory_radius95_m": 4817.710782831894
+    }
+  },
+  "unshifted_Barenblatt_at_tau_300": {
+    "age_year": 300.0,
+    "amplitude": 0.34746504159712377,
+    "support_radius_m": 5273.512167953418,
+    "inventory_radius95_m": 4439.593789973473
+  },
+  "exact_Barenblatt_numerical_control": {
+    "relative_inventory_error": 1.3411045074462894e-15,
+    "initial_state_jump": 0.0,
+    "final_max_cell_average": 0.3174851903033974,
+    "final_R95_m": 4644.480799495663,
+    "minimum": 0.0,
+    "outermost_maximum": 0.0,
+    "rhs_evaluations": 40735,
+    "exact_initial_age_year": 49.73591971621728,
+    "exact_final_age_year": 349.73591971621727,
+    "exact_final_peak": 0.31748519574484085,
+    "exact_final_R95_m": 4644.479540768898,
+    "relative_L1_error": 3.0713787245133896e-07,
+    "max_cell_average_absolute_error": 1.4850728361717615e-06
+  },
+  "interpretation": "A Barenblatt virtual age selects one finite-width reference profile; matching mass and peak or second moment does not match the inherited profile. The direct PME run isolates the diffusivity law by using the identical initial state. L^2/D values are scale estimates, not predictions of the exact time at which the core ends.",
+  "elapsed_wall_time_seconds": 20.55293232799886
+}

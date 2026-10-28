@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Please cite this software and the accompanying manuscript; cite the field-source publications when using the processed field data."
+type: software
+title: "CO2 plume reproducibility: injection, shut-in, and seismic footprint fits"
+version: 1.0.0
+date-released: 2026-10-28
+authors:
+  - family-names: Alonso-Marroquín
+    given-names: Fernando
+  - family-names: Tantardini
+    given-names: Christian
+abstract: >-
+  Python scripts and data for reproducing finite-thickness CO2 plume profiles,
+  injection and shut-in histories, seismic equivalent-radius fits, and numerical
+  verification. The repository preserves the supplied processed field data
+  and documents a source chronology query for the first Aquistore survey.
+keywords:
+  - carbon dioxide storage
+  - porous media
+  - nonlinear Fokker-Planck equation
+  - porous-medium equation
+  - finite-volume method
+  - reproducible research

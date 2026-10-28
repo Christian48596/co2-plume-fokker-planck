@@ -1,0 +1,21 @@
+{
+  "data_sha256": "36ea5c29a534acadef4f11f76d3df78c1bfb70e1eb3b01b09f83b68ef7d698e1",
+  "matplotlib": "3.10.8",
+  "text_font": "cmr10.ttf",
+  "math_fontset": "cm",
+  "injection_snapshots_year": [
+    1.0,
+    2.0,
+    3.0
+  ],
+  "shutin_snapshots_year": [
+    3.0,
+    23.0,
+    103.0,
+    303.0
+  ],
+  "pdf_and_png_names": [
+    "continuous_plume_profiles",
+    "continuous_plume_history"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "source_archive": "python_rep.zip",
+  "source_archive_sha256": "6bf791344aff3ace244b0bb4d55449bd79333c9c1b2f1465f519ec5e939eebf9",
+  "inputs": {
+    "data/field/combined_radius_vs_year_all_sites.csv": {
+      "sha256": "cc30962519db5d3d6bfc4f353f591382139928374295d61319e713a2ef81b0b3",
+      "bytes": 2777
+    },
+    "data/model/history.npz": {
+      "sha256": "36ea5c29a534acadef4f11f76d3df78c1bfb70e1eb3b01b09f83b68ef7d698e1",
+      "bytes": 1969292
+    },
+    "data/model/metrics.json": {
+      "sha256": "068c5cfd6d8748aa58a51386aac112a5f33850fef1a562575041013801bc5d8e",
+      "bytes": 1992
+    }
+  }
+}

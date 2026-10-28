@@ -1,0 +1,51 @@
+{
+  "retained_input_files": [
+    "data/model/history.npz",
+    "data/model/metrics.json",
+    "data/field/combined_radius_vs_year_all_sites.csv"
+  ],
+  "original_matlab_filename": "fit_all_sites_radius_powerlaw.m",
+  "original_matlab_sha256": "721cec60cd7173335a7424d7f06f73449491efb3794290f471fdea362f84b204",
+  "script_port": "scripts/fit_field_radius.py",
+  "matlab_runtime_used": false,
+  "field_fit_verification": "Independent centered-covariance OLS scan versus polyfit implementation; coefficient differences below 5e-16.",
+  "excluded_legacy_files": [
+    "descriptive_scaling_fits.json",
+    "pme_N3200.npz",
+    "resolution.csv",
+    "pme_N3200_summary.json",
+    "pme_N800_summary.json",
+    "pme_N800.npz",
+    "pme_N1600_summary.json",
+    "pme_N1600.npz",
+    "pme_N800_history.csv",
+    "pme_N3200_history.csv",
+    "resolution_summary.json",
+    "pme_N1600_history.csv"
+  ],
+  "replaced_legacy_refinement_driver": true,
+  "fresh_6400_cell_recompute": {
+    "all_numerical_arrays_identical_to_supplied": true,
+    "max_absolute_difference_by_array": {
+      "r": 0.0,
+      "edges": 0.0,
+      "area": 0.0,
+      "t": 0.0,
+      "u": 0.0,
+      "mass": 0.0,
+      "expected": 0.0,
+      "R001": 0.0,
+      "a099": 0.0,
+      "R95": 0.0,
+      "umax": 0.0,
+      "injection_snapshots": 0.0,
+      "shutin_snapshots": 0.0
+    }
+  },
+  "input_data_changed": false,
+  "figure4_display_changes": [
+    "Computer Modern fonts and tight crop",
+    "Original CSV time uncertainties displayed by default; legacy override is explicit"
+  ],
+  "open_scientific_query": "First Aquistore map label2015 versus36kt surveyFebruary2016; documented in docs/DATA_PROVENANCE.md."
+}

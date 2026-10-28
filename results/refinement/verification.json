@@ -1,0 +1,132 @@
+{
+  "model": "finite_thickness_convection_diffusion",
+  "parameters": {
+    "H": 10.0,
+    "phi": 0.3,
+    "Sbr": 0.2,
+    "q": 0.3,
+    "D0": 20000.0,
+    "mobility_ratio": 5.0,
+    "QV": 10000000.0,
+    "ts": 3.0,
+    "rw": 10.0,
+    "rout": 20000.0,
+    "tend": 303.0
+  },
+  "grids": [
+    {
+      "cells": 800,
+      "dr_m": 24.987499999999997,
+      "R95_shutin_km": 3.6363692115588133,
+      "R95_final_km": 4.427825459926036,
+      "R001_shutin_km": 4.744915234305058,
+      "R001_final_km": 5.5307668080145,
+      "a099_shutin_km": 0.7557746986118827,
+      "umax_final": 0.7162439662054567,
+      "mass_error_relative": 1.043081283569336e-15,
+      "minimum_u": 0.0,
+      "maximum_bound_excess": 2.313704783318826e-13,
+      "shutin_state_jump": 0.0,
+      "outermost_u": 0.0
+    },
+    {
+      "cells": 1600,
+      "dr_m": 12.493749999999999,
+      "R95_shutin_km": 3.6075351466417684,
+      "R95_final_km": 4.408424016198256,
+      "R001_shutin_km": 4.63709059271913,
+      "R001_final_km": 5.5003804199636335,
+      "a099_shutin_km": 0.804492039627521,
+      "umax_final": 0.7272193036107284,
+      "mass_error_relative": 1.1920928955078125e-15,
+      "minimum_u": 0.0,
+      "maximum_bound_excess": 1.04354214158775e-09,
+      "shutin_state_jump": 0.0,
+      "outermost_u": 0.0
+    },
+    {
+      "cells": 3200,
+      "dr_m": 6.246874999999999,
+      "R95_shutin_km": 3.5926466150141825,
+      "R95_final_km": 4.398331080621904,
+      "R001_shutin_km": 4.567745262192753,
+      "R001_final_km": 5.484883807931089,
+      "a099_shutin_km": 0.8356404248811199,
+      "umax_final": 0.7331707361125714,
+      "mass_error_relative": 1.9371509552001953e-15,
+      "minimum_u": 0.0,
+      "maximum_bound_excess": 1.2357888046210519e-09,
+      "shutin_state_jump": 0.0,
+      "outermost_u": 0.0
+    },
+    {
+      "cells": 6400,
+      "dr_m": 3.1234374999999996,
+      "R95_shutin_km": 3.585041769565116,
+      "R95_final_km": 4.393109970445284,
+      "R001_shutin_km": 4.523992429601345,
+      "R001_final_km": 5.476881020797192,
+      "a099_shutin_km": 0.8555344739937232,
+      "umax_final": 0.736308848855286,
+      "mass_error_relative": 2.384185791015625e-15,
+      "minimum_u": 0.0,
+      "maximum_bound_excess": 1.1072085470686943e-09,
+      "shutin_state_jump": 0.0,
+      "outermost_u": 0.0
+    }
+  ],
+  "refinement": {
+    "800_to_1600_percent": {
+      "R95_shutin_km": 0.7992732917345607,
+      "R95_final_km": 0.44009931114819406,
+      "R001_shutin_km": 2.325264935630693,
+      "R001_final_km": 0.5524415718698059,
+      "a099_shutin_km": 6.055664769311375,
+      "umax_final": 1.5092197567883379
+    },
+    "1600_to_3200_percent": {
+      "R95_shutin_km": 0.414416813648319,
+      "R95_final_km": 0.22947193813626027,
+      "R001_shutin_km": 1.5181523168629552,
+      "R001_final_km": 0.28253309596342635,
+      "a099_shutin_km": 3.727486646906785,
+      "umax_final": 0.8117389591132371
+    },
+    "3200_to_6400_percent": {
+      "R95_shutin_km": 0.21212710863307416,
+      "R95_final_km": 0.1188477004159838,
+      "R001_shutin_km": 0.9671287755727597,
+      "R001_final_km": 0.14611942643099746,
+      "a099_shutin_km": 2.325335765809157,
+      "umax_final": 0.4261951689964474
+    }
+  },
+  "sources": [
+    {
+      "cells": 800,
+      "origin": "refinement_run",
+      "history_sha256": "da41c86fd68ec60d4fa84a2ead05901bbf68f3e9095268dc4f2e389c90ca397d",
+      "metrics_sha256": "5c1ef94fc63c753d82dfca49d2afcefbf485e9e59aeb5e468611695bc0dda1c6"
+    },
+    {
+      "cells": 1600,
+      "origin": "refinement_run",
+      "history_sha256": "5e0157161570a1145317ee236e7c8ffdf337dd61bdf4274c3a0aa02cb6468785",
+      "metrics_sha256": "151853d786a33be8e9d9994df3e77610f4cc5611cd93f4c208173206c923f9cb"
+    },
+    {
+      "cells": 3200,
+      "origin": "refinement_run",
+      "history_sha256": "55e5181a70019ded2e9e961aadbedbb0ffbd1106ccf6df1154720ee1b5c28521",
+      "metrics_sha256": "70f137246e2a21601f170ddf14bb464bec5a9b1110618ed0bbcb7093de1e2a2f"
+    },
+    {
+      "cells": 6400,
+      "origin": "supplied_production",
+      "history_sha256": "36ea5c29a534acadef4f11f76d3df78c1bfb70e1eb3b01b09f83b68ef7d698e1",
+      "metrics_sha256": "068c5cfd6d8748aa58a51386aac112a5f33850fef1a562575041013801bc5d8e"
+    }
+  ],
+  "primitive_quadrature_max_relative_error": 3.5387320752477783e-15,
+  "interpretation": "These finite-grid changes quantify spatial sensitivity. Exact inventory conservation alone does not establish profile accuracy. R001 and a099 are thickness diagnostics, not exact free boundaries."
+}
