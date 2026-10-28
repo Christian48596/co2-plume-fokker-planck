@@ -1,22 +1,38 @@
 #!/usr/bin/env python3
-"""Reproduce the Figure 4 field-radius fits using Python only.
+"""Reproduce Figure 4 with the supplied MATLAB script's error-bar convention.
 
-The numerical fit is a port of the supplied ``fit_all_sites_radius_powerlaw.m``:
-10,000 candidate onset times, ordinary least squares in natural-log space,
-and selection of the candidate with the smallest log-residual sum of squares.
-The survey uncertainties are displayed, but are not fit weights.
+Default: match MATLAB, including its explicit replacement of each site's first
+survey-time error by +/-1/12 year (one month). This is a display assumption in
+the original MATLAB code, not an uncertainty estimated from the observations.
+All remaining time errors and all vertical radius errors come from the CSV.
+The original CSV is never modified. Use --csv-time-errors to display all CSV
+time uncertainties instead, including those for the first observations.
 
-Default error bars use the supplied CSV unchanged. The MATLAB script replaced
-each site's first survey-time uncertainty by 1/12 year. That display-only
-override is available explicitly with ``--legacy-first-time-error`` and is
-recorded in the output metadata; it never changes the fitted parameters.
+The fit is unchanged: 10,000 candidate onset times, unweighted least squares in
+natural-log space, and minimum log-residual sum of squares. The error bars
+are not fit weights and do not include uncertainty in fitted onset time t0.
+Changing the time-error display never changes the fit or observational values.
 
-Run from any working directory:
+Aquistore's first-map year follows the 2015 label in White and Movahedzadeh
+(2025), whereas Roach and White (2018) identify the 36-kt survey as February
+2016. Its fit remains conditional on the supplied chronology; changing the
+error-bar display does not reconcile these source dates.
+
+Place this file in the repository scripts/ directory, replacing the existing
+fit_field_radius.py. Default input and output paths are relative to the
+repository root. Run from the repository root:
     python scripts/fit_field_radius.py
-    python scripts/fit_field_radius.py --legacy-first-time-error
+    python scripts/fit_field_radius.py --csv-time-errors
 
-Outputs are Figure 4 (vector PDF and 300-dpi PNG) and machine-readable fits.
-Only the log-log panel used in the manuscript is generated.
+Outputs: Figure 4 PDF and 300-dpi PNG, fitted parameters, and JSON records of
+both source and displayed time uncertainties. The Computer Modern fonts,
+column-sized layout, symbols, fits, and vertical errors match the last Python
+figure; only the three first-observation horizontal errors change by default.
+
+The older --legacy-first-time-error flag is retained for compatibility. With
+the existing repository wrapper, run:
+    python scripts/reproduce.py --legacy-first-time-error
+This also keeps that wrapper's recorded plotting convention consistent.
 """
 
 from __future__ import annotations
@@ -166,9 +182,9 @@ def plot_figure4(
     observations: list[SiteData],
     fits: list[dict],
     output_directory: Path,
-    legacy_first_time_error: bool = False,
+    legacy_first_time_error: bool = True,
 ) -> list[dict]:
-    """Draw the measured uncertainties and fitted curves on logarithmic axes.
+    """Draw the selected error-bar convention and fits on logarithmic axes.
 
     The first time-error override is applied to a copy used for drawing only.
     Horizontal error bars extending beyond the plot's lower limit are clipped
@@ -177,16 +193,18 @@ def plot_figure4(
     """
     plt.rcParams.update({
         "font.family": "serif", "font.serif": ["cmr10", "DejaVu Serif"],
-        "mathtext.fontset": "cm", "font.size": 10,
+        "mathtext.fontset": "cm", "font.size": 8,
         "axes.formatter.use_mathtext": True, "axes.unicode_minus": False,
-        "axes.labelsize": 11, "legend.fontsize": 9.5,
+        "axes.labelsize": 8.5, "legend.fontsize": 7.5,
         "pdf.fonttype": 42, "ps.fonttype": 42,
         "axes.linewidth": 0.8, "lines.linewidth": 1.7,
     })
     styles = (("red", "o", "-"), ("blue", "s", "--"), ("magenta", "D", "-."))
     xmin, xmax = 0.1, 10.0
     curve_x = np.geomspace(xmin, xmax, 400)
-    fig, ax = plt.subplots(figsize=(7.1, 4.2), layout="constrained")
+    # A 3.4-inch canvas targets a single PRE column. Text sizes below remain
+    # legible when the PDF is included at \linewidth without old MATLAB trims.
+    fig, ax = plt.subplots(figsize=(3.4, 2.65), layout="constrained")
     ax.set_xscale("log")
     ax.set_yscale("log")
     display_records, handles = [], []
@@ -194,10 +212,13 @@ def plot_figure4(
         x = obs.survey_year - fit["t0_year"]
         dx = obs.survey_error_year.copy()
         if legacy_first_time_error:
+            # Exact MATLAB convention: dtdata(1) = firstPointTimeError_yr.
+            # The supplied MATLAB comment calls this artificially small.
+            # This changes the drawing copy only, never the CSV or fit.
             dx[0] = 1 / 12
         ax.errorbar(x, obs.radius_km, yerr=obs.radius_error_km,
                     color=color, marker=marker, markerfacecolor="none",
-                    linestyle="none", markersize=6.5, capsize=3.5,
+                    linestyle="none", markersize=4.0, capsize=2.5,
                     elinewidth=1.1, markeredgewidth=1.1, zorder=3)
         for i, (xp, yp, dt) in enumerate(zip(x, obs.radius_km, dx)):
             left, right = max(float(xp-dt), xmin), float(xp+dt)
@@ -218,7 +239,7 @@ def plot_figure4(
                 linestyle=linestyle, linewidth=1.8, zorder=1)
         label = rf"{obs.site.replace('--', '-')} ($\beta={fit['beta']:.3f}$)"
         handles.append(Line2D([], [], color=color, marker=marker, markerfacecolor="none",
-                              linestyle=linestyle, markersize=6.5, linewidth=1.8, label=label))
+                              linestyle=linestyle, markersize=4.0, linewidth=1.8, label=label))
     ax.set(xlim=(xmin, xmax), ylim=(0.05, 5),
            xlabel=r"Elapsed time, $t-t_0$ (yr)",
            ylabel=r"Equivalent radius, $R_{\mathrm{eq}}$ (km)")
@@ -233,7 +254,7 @@ def plot_figure4(
     return display_records
 
 
-def main(data: Path, figures: Path, results: Path, legacy_first_time_error: bool = False) -> dict:
+def main(data: Path, figures: Path, results: Path, legacy_first_time_error: bool = True) -> dict:
     """Fit every manuscript site, draw Figure 4, and write auditable outputs."""
     data, figures, results = Path(data), Path(figures), Path(results)
     observations = load_site_data(data)
@@ -253,8 +274,8 @@ def main(data: Path, figures: Path, results: Path, legacy_first_time_error: bool
         "units": {"R0": "km", "t": "decimal calendar year", "t0": "decimal calendar year"},
         "fit_method": "10000-point onset scan; unweighted natural-log ordinary least squares",
         "onset_constraints": "injection start + 1e-4 <= t0 <= first survey - 1e-4 years",
-        "uncertainty_role": "Displayed observational error bars; not regression weights or fitted-onset uncertainty.",
-        "time_provenance": "Survey dates and errors are retained from the supplied CSV. See repository provenance for the Aquistore date-to-volume mapping query.",
+        "uncertainty_role": "Displayed error bars, including the selected first-point convention; not regression weights or fitted-onset uncertainty.",
+        "time_provenance": "Source survey dates and errors are retained unchanged. With the default MATLAB display convention, each site's first plotted time error is replaced by +/-1/12 year; this is not an estimated measurement uncertainty. The first Aquistore map is labelled 2015 by White and Movahedzadeh (2025), whereas Roach and White (2018) date the 36-kt monitor survey to February 2016. The Aquistore fit is conditional on the adopted CSV chronology.",
         "legacy_first_time_error_override": legacy_first_time_error,
         "legacy_override_year": 1/12 if legacy_first_time_error else None,
         "interpretation": "Injection-period footprint descriptors; no constitutive q or shut-in rate inferred.",
@@ -273,7 +294,15 @@ if __name__ == "__main__":
                         default=ROOT / "data/field/combined_radius_vs_year_all_sites.csv")
     parser.add_argument("--figures", type=Path, default=ROOT / "figures")
     parser.add_argument("--results", type=Path, default=ROOT / "results/field")
-    parser.add_argument("--legacy-first-time-error", action="store_true",
-                        help="Reproduce the MATLAB display-only +/-1/12 year override for each first survey.")
+    # Keep the previous CLI flag so the existing reproduction wrapper works.
+    # Default is now MATLAB-compatible; raw CSV errors remain an explicit option.
+    time_errors = parser.add_mutually_exclusive_group()
+    time_errors.add_argument("--legacy-first-time-error", dest="legacy_first_time_error",
+                             action="store_true",
+                             help="Match MATLAB: first time error is +/-1/12 year (default).")
+    time_errors.add_argument("--csv-time-errors", dest="legacy_first_time_error",
+                             action="store_false",
+                             help="Use every original CSV time uncertainty; no first-point override.")
+    parser.set_defaults(legacy_first_time_error=True)
     args = parser.parse_args()
     main(args.data, args.figures, args.results, args.legacy_first_time_error)
